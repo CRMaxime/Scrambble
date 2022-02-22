@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+body {
+	text-align: center;
+	font-family: Oswald;
+	font-size: 32px;
+	text-transform: uppercase;
+	user-select: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	background: #fefefe;
+	touch-action: manipulation;
+}
+
+h4 {
+	margin: 0 0 8px 0;
+	letter-spacing: 4px;
+	font-weight: normal;
+	border-bottom: 0.5px solid lightgrey;
+}
+
+h6 {
+	margin: 16px 0 16px 0;
+	font-weight: normal;
+	color: lightgrey;
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+
+p {
+	margin: 16px 0 8px 0;
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+
+.paste {
+	color: lightgrey;
+	font-size: 15px;
+}
+
+div {
+	display: inline-block;
+	width: 56px;
+}
+
+div div {
+	height: 224px;
+	overflow: hidden;
+}
+
+span {
+	display: block;
+	background: #eeeeee;
+	border-radius: 2px;
+	margin: 8px 4px;
+	width: 48px;
+	height: 48px;
+	line-height: 48px;
+}
+
+a {
+	cursor: pointer;
+	color: lightgrey;
+	touch-action: manipulation;
+	display: block;
+	height: 48px;
+	margin-top: -12px;
+	line-height: 40px;
+}
+
+button {
+	-webkit-appearance: none;
+	background: black;
+	color: white;
+	text-transform: uppercase;
+	border: none;
+	margin: 0 0 8px 0;
+	font-family: Oswald;
+	padding: 4px 8px;
+	font-size: 18px;
+	letter-spacing: 1px;
+	cursor: pointer;
+}
+
+.used { opacity: 0.2; }
+.done { color: #fefefe !important; }
+
+textarea {
+	font-family: Oswald;
+	width: 160px;
+	height: 100px;
+	letter-spacing: 1px;
+	line-height: 20px;
+	border: none;
+	padding: 8px;
+	display: block;
+	margin: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  body { background: #0e0e0f; color: #fefefe; }
+  h4 { background: #1d1d20; }
+  h6, a { color: #646464; }
+  button { background: grey; color: #0e0e0f; }
+  span { background: #222222; }
+  .done { color: #0e0e0f !important; }
+}
