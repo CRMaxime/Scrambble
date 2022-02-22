@@ -104,7 +104,7 @@ start()
 let dragged
 let previousTouch
 
-window.ontouchend = (e) => {
+window.ontouchend = window.onmouseup = (e) => {
 	dragged?.reset()
 }
 
@@ -138,10 +138,10 @@ function loopScroll(div) {
 		updateMargin()
 	}
 	
-	div.ontouchstart = (e) => {
+	div.ontouchstart = div.onmousedown = (e) => {
 		dragging = true
 		dragged = div
-		previousTouch = e.touches[0].pageY
+		if (e.touches) previousTouch = e.touches[0].pageY
 		e.preventDefault()
 		topper.style.transition = "none"
 		style.insertRule("span { transition: margin 0.5s }", style.cssRules.length)
@@ -159,11 +159,15 @@ function loopScroll(div) {
 		}, 500)
 	}
 	
-	div.ontouchmove = e => {
+	div.ontouchmove = div.onmousemove = e => {
 		if (dragging) {
-			const touch = e.touches[0].pageY
-			topY += touch - previousTouch
-			previousTouch = touch
+			if (previousTouch) {
+				const touch = e.touches[0].pageY
+				topY += touch - previousTouch
+				previousTouch = touch
+			} else {
+				topY += e.movementY / window.devicePixelRatio
+			}
 			updateLetters()
 		}
 	}
