@@ -90,12 +90,12 @@ const shift = (direction: -1 | 1) => {
 
 <template>
   <div :disabled="disabled">
-    <a @touchstart="shift(-1)" @mousedown.prevent="shift(-1)">↥</a>
+    <a @touchstart.prevent="shift(-1)" @mousedown="shift(-1)">↥</a>
     <div @touchstart="startDrag" @mousedown="startDrag">
       <LetterSpan :style="{ marginTop: topY + 'px', transition }" :letter="letters[0]" />
       <LetterSpan v-for="l in 11" LetterSpan :letter="letters[l % 4]" :disabled="disabled" />
     </div>
-    <a @touchstart="shift(1)" @mousedown.prevent="shift(1)">↧</a>
+    <a @touchstart.prevent="shift(1)" @mousedown="shift(1)">↧</a>
   </div>
 </template>
 
